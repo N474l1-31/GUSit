@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+/* Se pueden agregar destinos globales y dependiendo del orden es como lo priorisa  */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

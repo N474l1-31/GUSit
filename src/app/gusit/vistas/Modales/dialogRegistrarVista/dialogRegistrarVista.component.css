@@ -1,0 +1,54 @@
+.titulo {
+  color: #00468C;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.centrar-contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px; /* Añade un margen interno */
+  min-width: 300px;
+}
+
+.campos-formulario {
+  width: 100%;
+  max-width: 500px; /* Ajusta el ancho máximo */
+  min-width: 300px; /* Ajusta el ancho mínimo */
+}
+
+.centrar-botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:20px;
+  margin-bottom: 10px;
+}
+
+.boton-acciones {
+  flex: 1;
+  background-color: #00468C;
+  color: white;
+  transition: background-color 0.3s;
+  margin: 0 10px;
+  padding: 10px 20px; /* Ajusta el tamaño del botón */
+}
+
+.boton-acciones:hover,
+.boton-acciones:active {
+  background-color: #8C006E;
+}
+
+
+.ejemplo {
+  color: #084d47;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}

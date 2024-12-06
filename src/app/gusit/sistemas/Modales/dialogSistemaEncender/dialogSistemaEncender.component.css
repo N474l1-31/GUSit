@@ -1,0 +1,78 @@
+.titulo {
+  color: #297A0F;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.campos-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+  padding: 0 5px;
+}
+
+.campos-estilo {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.campo-perfil,
+.campo-sistema {
+  margin: 10px 20px;  /* Reducido el margen */
+  flex: 1 1 150px;     /* Cambiado para un ancho base más pequeño */
+  min-width: 120px;    /* Ancho mínimo más pequeño */
+  max-width: 200px;    /* Ancho máximo opcional */
+}
+
+.centrar-botones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.boton-acciones {
+  flex: 1 1 120px;
+  background-color: #00468C;
+  color: white;
+  transition: background-color 0.3s;
+  margin: 0 50px;
+}
+
+.boton-acciones:hover,
+.boton-acciones:active {
+  background-color: #8C006E;
+}
+
+
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 1.2em;
+  }
+
+  .campo-perfil,
+  .campo-sistema {
+    flex: 1 1 100%;
+    margin: 5px 0;
+  }
+
+  .boton-acciones {
+    flex: 1 1 35%;
+    margin: 5px 2.5%;
+    font-size: 0.9em;
+  }
+
+  .diseño-paginator {
+    font-size: 1em;
+  }
+}
+
+
+

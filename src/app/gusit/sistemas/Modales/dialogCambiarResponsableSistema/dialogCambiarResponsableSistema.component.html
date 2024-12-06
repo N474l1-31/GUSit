@@ -1,0 +1,29 @@
+<h2 mat-dialog-title class="titulo">CAMBIAR RESPONSABLE</h2>
+
+<div class="campos-dialog">
+  <form [formGroup]="cambiarResponsableForm" (ngSubmit)="cambiaResponsable()">
+    <div class="campos-estilo">
+      <mat-form-field class="campos-formulario">
+        <mat-label>Sistema</mat-label>
+        <input matInput [value]="responsable.nombre" title="Sistema" disabled>
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Usuario Responsable</mat-label>
+        <input matInput [value]="responsable.responsable" title="Usuario Responsable" disabled>
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Nuevo Responsable</mat-label>
+        <mat-select formControlName="usuario">
+          <mat-option *ngFor="let usuario of usuariosData" [value]="usuario">{{usuario.usuario}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="centrar-botones">
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>

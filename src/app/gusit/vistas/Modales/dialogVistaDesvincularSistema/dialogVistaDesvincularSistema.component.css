@@ -1,0 +1,46 @@
+.titulo{    /* Estilos para el titulo (h2)*/
+  color: #4DD0E1;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 21px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.centrar-contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.estilo-formulario {
+  min-width: 100px;
+  max-width: 300px;
+  width: 100%;
+  position: inherit;
+}
+
+.campos-formulario {
+  width: 100%;
+  position: center;
+}
+
+.centrar-botones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.boton-acciones{
+flex: 1;
+background-color: #4DD0E1;
+color: #01514E;
+transition: background-color 0.3s;
+margin: 0 20px; /* Añadido margen de 20 px a cada lado */
+}
+
+.boton-acciones:hover,
+.boton-acciones:active {
+  background-color: #FF8833; /* Cambiar al pasar/hacer clic */
+}

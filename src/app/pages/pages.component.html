@@ -1,0 +1,53 @@
+<mat-toolbar>
+  <div>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+      <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+  </div>
+      <img class="logo-gusit" src="./assets/img/logo.png" />
+  <div class="fecha-hora">
+    <p>{{ fechaActual }}</p>
+  </div>
+  <div class="iconos-acciones">
+    <mat-icon (click)="manualUsuarioPDF()" title="Manual de Usuario">save_alt</mat-icon>
+    <mat-icon (click)="cerrarSesion()" title="Cerrar Sesión">logout</mat-icon>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav class="mat-elevation-z8" #sidenav="matSidenav" mode="side" opened>
+    <!-- Icono de usuario arriba -->
+    <div class="user-section">
+      <img class="avatar mat-elevation-z8" src="./assets/img/uno.jpg"/>
+
+      <div class="user">
+        <p>{{ usuario }}
+          <mat-icon (click)="toggleUserDetails()" class="desplegar">
+          {{ showUserDetails ? 'expand_less' : 'expand_more' }}
+        </mat-icon>
+      </p>
+      </div>
+      <div *ngIf="showUserDetails" class="datos-ocultos">
+        <p>{{ nombreCompleto }}</p>
+        <p>{{ perfil }}</p>
+      </div>
+    </div>
+    <hr />
+
+    <!-- Botones del menú -->
+    <div class="menu-items">
+      <button type="button" class="menu-button" *ngFor="let opcion of modulos">
+        <mat-icon>{{ opcion.icono }} </mat-icon>
+        <span><a class="letreros-menu" [routerLink]="opcion.ruta">{{ opcion.nombre }}</a></span>
+      </button>
+    </div>
+    
+  </mat-sidenav>
+
+  <div class="content-edit">
+    <mat-card class="contenedor-resultados">
+      <router-outlet></router-outlet>
+    </mat-card>
+  </div>
+</mat-sidenav-container>

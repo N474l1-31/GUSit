@@ -1,0 +1,29 @@
+<h2 mat-dialog-title class="titulo">DESVINCULA SISTEMA DE PERFILES</h2>
+
+<div class="campos-dialog">
+  <form [formGroup]="desvinculaSistemaPForm" (ngSubmit)="desvinculaSistemaDePerfiles()">
+    <div class="campos-estilo">
+      <mat-form-field>
+        <mat-label>Sistema</mat-label>
+        <input matInput  [value]="sistemaPDesvinculada.nombre" readonly>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="perfilesActivosVinculados && perfilesActivosVinculados.length > 0">
+      <p class="indicaciones">Selecciona los PERFILES que deseas Desvincular del Sistema:</p>
+
+      <div class="vistas-filas">
+        <div class="vistas-columnas" *ngFor="let perfil of perfilesActivosVinculados; let i = index">
+          <mat-checkbox [checked]="false" [value]="perfil.perfil" (change)="updateSelectedPerfiles($event, perfil.perfil)">
+            {{ perfil.perfil }}
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="centrar-botones">
+      <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+      <button mat-button class="boton-acciones" type="submit">Guardar</button>
+    </div>
+  </form>
+</div>

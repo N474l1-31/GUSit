@@ -1,0 +1,27 @@
+<h2 mat-dialog-title class="titulo">DESVINCULAR USUARIO DE SISTEMA-PERFIL</h2>
+
+<div class="centrar-contenido">
+  <form class="campos-estilos" [formGroup]="desvincularUsuarioForm" (ngSubmit)="desvincularUsuario()">
+    <fieldset>
+      <mat-form-field class="campos-formulario">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="usuario" readonly="usuario">
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Sistema</mat-label>
+        <input matInput formControlName="sistema" readonly="sistema">
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Perfil</mat-label>
+        <input matInput formControlName="perfil" readonly="perfil">
+      </mat-form-field>
+
+      <div class="centrar-botones">
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

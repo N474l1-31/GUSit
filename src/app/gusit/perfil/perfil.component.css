@@ -1,0 +1,126 @@
+.example-header {      /* Contenedor Total (MAT - TAB) */
+  background-color: transparent;
+}
+
+.estilo {
+  background-color: rgba(64, 85, 245, 0.1);
+  height: 700px;
+}
+
+.fila-oculta {
+  display: none;
+}
+
+.filtro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filtro-perfil {
+  width: 10vw; /* Seguir usando ancho relativo */
+  min-width: 150px; /* Pero no permitir que el ancho baje de este valor */
+  margin-left: 5vw;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.button-acciones {
+  display: flex;
+  justify-content: space-around; /* Distribuir los botones en todo el espacio disponible */
+  padding: 2px;
+}
+
+.mat-icon-button {
+  margin: 0 5px;
+}
+
+/* __________________________________________________   MIS PERFILES   __________________________________________________ */
+.button-agregar-perfil {          /* Boton agregarPerfil */
+  background-color: rgba(0, 70, 140, 0.5);
+  color: white !important;
+  padding: 10px 20px; /* Ajusta el tamaño del botón */
+  min-width: 150px;
+  max-width: 200px;
+  text-align: center;
+  white-space: nowrap; /* Evita que el texto del botón se divida en varias líneas */
+  flex-shrink: 0;
+  margin-right: 200px;
+}
+
+.div-tabla-perfil { /* Margen  entre la tabla y el contenedor*/
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+.div-tabla-perfil table tr.fila-hover:hover {
+  background-color:  rgba(0,70,140,0.1)
+}
+
+.tabla-modulo-perfil {
+  width: 100%;
+  max-width: 95vw;
+  margin-bottom: 30px;
+  background-color: transparent;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.encabezados {
+  background-color: #2A39A3;
+  text-align: center;
+  color:white;
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  width: 50%;
+}
+
+.resultados {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color:  #00458A;
+  text-align: center;
+}
+
+.icon-detalles-perfil{
+  color: #218838;
+}
+
+.icon-vincular-perfil{
+  color: #BF8FCC;
+}
+
+.icon-desvincular-perfil{
+  color: #A50B5E;
+}
+
+.icon-vincular-vista{
+  color: #4788C7;
+}
+
+.icon-desvincular-vista{
+  color: #141B4D;
+}
+
+.icon-detalles-personalizados{
+  color: #FF8833
+}
+
+.icon-eliminar-perfil{
+  color: #FF0000;
+}
+
+.diseño-paginator {
+  background-color: rgba(0, 70, 140, 0.4) !important;
+  font-size: 16px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-top-left-radius: 0;   /* Sin redondeo en la esquina superior izquierda */
+  border-top-right-radius: 0;  /* Sin redondeo en la esquina superior derecha */
+  border-bottom-left-radius: 15px;  /* Redondeo en la esquina inferior izquierda */
+  border-bottom-right-radius: 15px; /* Redondeo en la esquina inferior derecha */
+  font-weight: bold;
+  color: #00468C;
+  width: 100%;
+}

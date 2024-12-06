@@ -1,0 +1,120 @@
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.carta-responsiva {
+  width: calc(210mm - 60px);
+  height: auto;
+  padding: 30px;
+  box-sizing: border-box;
+  font-size: 12px;
+  position: relative;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ircep, .geomatica {
+  width: 100px;
+  height: 50px;
+  object-fit: cover;
+  background-color: transparent;
+}
+
+.date {
+  text-align: right;
+  font-size: 15px;
+  color: #0C3A51;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 15px
+}
+
+.asunto {
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 150%;
+}
+
+.info-dependencia p {
+  margin: 0;
+}
+
+.recuadro-user-passw {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top:20px;
+  padding: 10px;
+  border: 3px solid #161616;
+  border-radius: 10px;
+}
+
+.user-passw {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.estimado {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.bold {
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.condiciones {
+  text-align: justify;
+}
+
+.conformidad {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.firma {
+  margin-top: 80px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.boton-acciones {
+  width: 200px;
+  height: 40px;
+  background-color: rgba(0, 70, 140, 0.5);
+  color: white;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+@media (max-width: 600px) {
+  .boton-acciones {
+    width: 80px;
+    height: 80px;
+  }
+}

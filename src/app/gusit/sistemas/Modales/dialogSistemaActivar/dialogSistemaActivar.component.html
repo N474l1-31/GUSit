@@ -1,0 +1,23 @@
+<h2 mat-dialog-title class="titulo">El Sistema se ACTIVARA </h2>
+
+<div class="campos-dialog">
+  <form [formGroup] = "activarSistemaForm" (ngSubmit)="activarSistema()">
+    <div class="campos-estilo">
+      <mat-form-field class="campo-sistema">
+        <mat-label>Sistema</mat-label>
+          <input matInput readonly= "sistema" [value] = "sistemaActivo.nombre" >
+      </mat-form-field>
+
+      <mat-form-field class="campo-sistema">
+        <mat-label>Versión</mat-label>
+          <input matInput readonly= "version" [value] = "sistemaActivo.versionSistema" >
+      </mat-form-field>
+    </div>
+
+      <div class="centrar-botones">
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+  </form>
+</div>
+

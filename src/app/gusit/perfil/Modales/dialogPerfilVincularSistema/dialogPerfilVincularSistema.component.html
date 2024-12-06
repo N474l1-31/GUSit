@@ -1,0 +1,26 @@
+<h2 mat-dialog-title class="titulo">VINCULAR PERFIL A SISTEMA</h2>
+
+<div class="campos-dialog">
+  <form [formGroup] = "vinculaPerfilForm" (ngSubmit)="vincularPerfil()">
+    <div class="campos-estilo">
+      <mat-form-field class="campos-formulario">
+        <mat-label>Perfil</mat-label>
+          <input matInput disabled = "perfil" [value] = "perfilVinculado.perfil" >
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label> Seleccionar Sistema </mat-label>
+        <mat-select formControlName="sistema">
+          <mat-option *ngFor="let sistemaVinculado of sistemasActivosVinculados" [value]="sistemaVinculado.nombre">
+            {{sistemaVinculado.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="centrar-botones">
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>

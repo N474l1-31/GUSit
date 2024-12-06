@@ -1,0 +1,75 @@
+<h2 mat-dialog-title class="titulo">REGISTRO DE USUARIO</h2>
+
+<div class="centrar-contenido">
+      <form [formGroup]="altaUsuarioForm">
+        <div class="campos-estilo">
+          <mat-form-field class="campos-formulario">
+            <mat-label>Nombre</mat-label>
+            <input matInput title="Nombre" formControlName = "nombre">
+            <mat-error *ngIf="altaUsuarioForm?.get('nombre')?.hasError('nombreCompletoInvalido')" class="letrero-campo-vacio">
+              Nombre inválido. Ingresa solo letras y no dejes el campo vacío.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="campos-formulario">
+            <mat-label>Apellido Paterno</mat-label>
+              <input matInput title="ApellidoP" formControlName = "apellidoPrimero">
+              <mat-error *ngIf="altaUsuarioForm?.get('apellidoPrimero')?.hasError('nombreCompletoInvalido')" class="letrero-campo-vacio">
+                Apellido inválido. Ingresa solo letras y no dejes el campo vacío.
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="campos-formulario">
+            <mat-label>Apellido Materno</mat-label>
+              <input matInput title="ApellidoM" formControlName = "apellidoSegundo">
+              <mat-error *ngIf="altaUsuarioForm?.get('apellidoSegundo')?.hasError('nombreCompletoInvalido')" class="letrero-campo-vacio">
+                Apellido inválido. Ingresa solo letras y no dejes el campo vacío.
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="campos-formulario">
+              <mat-label>Usuario</mat-label>
+                <input matInput title="Usuario" formControlName = "usuario" >
+                <mat-error *ngIf="altaUsuarioForm?.get('usuario')?.hasError('usuarioInvalido')" class="letrero-campo-vacio">
+                  Usuario inválido. Ingresa solo letras y no dejes el campo vacío.
+                </mat-error>
+          </mat-form-field>
+
+          <mat-form-field  class="campos-formulario">
+              <mat-label>Contraseña</mat-label>
+              <input matInput title="Contraseña" formControlName="passwd">
+              <mat-error class="letrero-campo-vacio">
+                  Contraseña inválida. No dejes el campo vacío.
+                </mat-error>
+          </mat-form-field>
+
+          <div class="centrar-botones">
+            <button mat-button class="button-generar" type="button" (click)="generaPASS()">Generar Contraseña</button>
+          </div>
+
+          &nbsp;
+          <mat-form-field class="campos-formulario">
+            <mat-label>Área Inscrita</mat-label>
+              <mat-select formControlName="idArea">
+                <mat-option *ngFor="let area of areasData" [value]="area.idArea">{{area.area}}</mat-option>
+              </mat-select>
+                <mat-error class="letrero-campo-vacio">
+                  Área inválida. No dejes el campo vacío.
+                </mat-error>
+          </mat-form-field>
+
+          <div class="centrar-botones" >
+            <button mat-button class="button-generar" type="button" (click) ="generarCartaResponsiva()"> Generar Acta Responsiva </button>
+          </div>
+
+          <div class="centrar-botones" >
+            <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+            <button mat-button class="boton-acciones" type="button" (click)="validarRegistroUsuario()" [disabled]="altaUsuarioForm.invalid" >Registrar Usuario</button>
+          </div>
+        </div>
+    </form>
+</div>
+
+
+
+

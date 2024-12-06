@@ -1,0 +1,63 @@
+<h2 mat-dialog-title class="titulo">DETALLES DE SISTEMA-PERFIL-VISTA => CONTROLES</h2>
+
+<div class="campos-dialog">
+  <div class="campos-estilo">
+    <!-- Campo para mostrar el Sistema (solo lectura) -->
+    <mat-form-field class="campo-vista-sistema">
+      <mat-label>Sistema</mat-label>
+      <input matInput readonly [value]="sistemaSeleccionado" />
+    </mat-form-field>
+
+    <!-- Campo para seleccionar Perfil -->
+    <mat-form-field class="campo-vista-sistema">
+      <mat-label>Seleccionar Perfil</mat-label>
+      <mat-select [(value)]="selectedPerfil" (selectionChange)="cargarVistas(sistemaSeleccionado, $event.value)">
+        <mat-option *ngFor="let perfilVinculado of perfilesActivosVinculados" [value]="perfilVinculado.perfil">
+          {{ perfilVinculado.perfil }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Campo para seleccionar Vista -->
+    <mat-form-field class="campo-vista-sistema" *ngIf="selectedPerfil">
+      <mat-label>Seleccionar Vista</mat-label>
+      <mat-select [(value)]="selectedVista" (selectionChange)="cargarControles(sistemaSeleccionado, selectedPerfil, $event.value)">
+        <mat-option *ngFor="let vistaVinculada of vistasActivasVinculadas" [value]="vistaVinculada.vista">
+          {{ vistaVinculada.vista }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Tabla para mostrar los controles -->
+    <div class="div-tabla-detalles" *ngIf="controles.length > 0">
+      <table mat-table class="tabla-detalles" [dataSource]="dataSourceDetalles">
+        <!-- Columna de Control -->
+        <ng-container matColumnDef="Control">
+          <th mat-header-cell *matHeaderCellDef class="encabezados-detalles"> CONTROL </th>
+          <td mat-cell *matCellDef="let controles" class="resultados-detalles"> {{ controles.control}} </td>
+        </ng-container>
+
+        <!-- Columna de Status -->
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef class="encabezados-detalles"> STATUS </th>
+          <td mat-cell *matCellDef="let controles">
+            <div class="status" [ngClass]="controles.statuss.toLowerCase()">
+              {{ controles.statuss | uppercase}}
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Filas y encabezados -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsDetalles" class="encabezados-detalles"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsDetalles;" class="fila-hover"></tr>
+      </table>
+      <!-- Paginación -->
+      <mat-paginator #paginacionDetalles class="diseño-paginator" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+    </div>
+
+    <!-- Mensaje cuando no hay controles -->
+    <div class="no-controles" *ngIf="controles.length === 0 && selectedVista">
+      No hay controles vinculados a la vista seleccionada.
+    </div>
+  </div>
+</div>

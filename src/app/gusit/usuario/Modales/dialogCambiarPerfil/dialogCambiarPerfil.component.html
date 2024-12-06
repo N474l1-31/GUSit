@@ -1,0 +1,29 @@
+<h2 mat-dialog-title class="titulo">CAMBIAR PERFIL</h2>
+
+<div class="centrar-contenido">
+  <form class="estilo-formulario" [formGroup]="cambiarPerfilForm" (ngSubmit)="cambiarPerfil()">
+    <fieldset>
+      <mat-form-field class="campos-formulario">
+        <mat-label>Usuario</mat-label>
+          <input matInput disabled = "true" [value] = "cambiarPerfilUsuario.usuario" title="Usuario">
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Sistema</mat-label>
+          <input matInput disabled = "sistema" [value] = "cambiarPerfilUsuario.Sistema"  title="Sistema">
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label> Perfiles ¨Activos¨ del Sistema </mat-label>
+        <mat-select formControlName="perfil"  [(value)]="selectedPerfil">
+          <mat-option *ngFor="let perfil of perfilesActivosVinculados" [value] = "perfil"> {{perfil}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="centrar-botones" >
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+  </fieldset>
+</form>
+</div>

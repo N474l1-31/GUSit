@@ -1,0 +1,33 @@
+<h2 mat-dialog-title class="titulo">VINCULAR USUARIO A SISTEMA-PERFIL </h2>
+
+<div class="centrar-contenido">
+  <form class="campos-estilo" [formGroup]="vincularUsuarioPSForm" (ngSubmit)="vincularUsuario()">
+    <fieldset>
+      <mat-form-field class="campos-formulario">
+        <mat-label>Usuario</mat-label>
+          <input matInput disabled ="true" [value] = "usuarioVinculado.usuario" title="Usuario">
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Seleccionar Sistema</mat-label>
+        <mat-select formControlName="sistema" [(value)]="selectedSistema" (selectionChange)="onSelectSistema($event.value)">
+          <mat-option *ngFor="let sistema of sistemasActivos" [value]="sistema.nombre">{{ sistema.nombre }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Perfiles ¨Activos¨ del Sistema</mat-label>
+        <mat-select formControlName="perfil" [(value)]="selectedPerfil">
+          <mat-option *ngFor="let perfil of perfiles" [value]="perfil">{{ perfil }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="centrar-botones" >
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+

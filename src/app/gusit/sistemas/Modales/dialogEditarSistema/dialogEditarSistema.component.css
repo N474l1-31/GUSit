@@ -1,0 +1,83 @@
+.titulo {
+  color: #00468C;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.campos-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.campos-estilo {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.campos-formulario {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.centrar-botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  flex-wrap: wrap;
+}
+
+.boton-acciones {
+  width: 45%;
+  background-color: #00468C;
+  color: white;
+  transition: background-color 0.3s;
+  margin: 0 10px;
+}
+
+.boton-acciones:hover,
+.boton-acciones:active {
+  background-color: #8C006E;
+}
+
+.letrero-campo-vacio {
+  font-weight: bold;
+}
+
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 1.2em;
+  }
+
+  .campos-formulario {
+    font-size: 1.0em;
+  }
+
+  .campos-estilo {
+    max-width: 80%;
+    padding: 0 5px;
+    margin: 0 auto; 
+  }
+
+  .boton-acciones {
+    flex: 1 1 35%;
+    margin: 5px 2.5%;
+    font-size: 0.9em;
+  }
+
+  .campos-dialog {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}

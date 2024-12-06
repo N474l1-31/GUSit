@@ -1,0 +1,38 @@
+<h2 mat-dialog-title class="titulo">DESVINCULA SISTEMA A PERFIL-USUARIOS</h2>
+
+<div class="campos-dialog">
+  <form [formGroup] = "desvinculaSistemaPUForm" (ngSubmit)="desvinculaSistemaDePerfilUsuario()">
+    <div class="campos-estilo">
+      <mat-form-field class="campo-sistema-perfil">
+        <mat-label>Sistema</mat-label>
+          <input matInput readonly= "sistema" [value] = "sistemaPUDesvinculada.nombre" >
+      </mat-form-field>
+
+      <mat-form-field class="campo-sistema-perfil">
+        <mat-label> Selecciona Perfil  </mat-label>
+        <mat-select formControlName="perfil"  (selectionChange)="onSelectPerfil($event.value, sistemaPUDesvinculada.nombre)">
+          <mat-option *ngFor="let perfil of perfilesActivosVinculados" [value]="perfil">
+            {{perfil}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+      <div *ngIf=" usuariosActivosVinculados && usuariosActivosVinculados.length > 0" class="vistas-container">
+        <p class="indicaciones"> Selecciona los USUARIOS que deseas Desvincular del Sistema-Perfil: </p>
+
+        <div class="vistas-filas">
+          <div class="vistas-columnas" *ngFor="let usuario of usuariosActivosVinculados; let i = index">
+            <mat-checkbox [checked]="false" [value]="usuario.usuario" (change)="updateSelectedUsuarios($event, usuario.usuario)">
+              {{ usuario.usuario}}
+            </mat-checkbox>
+          </div>
+        </div>
+    </div>
+
+      <div class="centrar-botones">
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+  </form>
+</div>

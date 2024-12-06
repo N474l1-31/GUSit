@@ -1,0 +1,47 @@
+.titulo {
+  color: #00468C;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 21px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.centrar-contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.estilo-formulario {
+  min-width: 100px;
+  max-width: 250px;
+  width: 100%;
+  position: inherit;
+}
+
+.campos-formulario {
+  width: 100%;
+  position: center;
+}
+
+.centrar-botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.boton-acciones {
+  flex: 1;
+  background-color: #00468C;
+  color: white;
+  transition: background-color 0.3s;
+  margin: 0 20px;
+}
+
+.boton-acciones:hover,
+.boton-acciones:active {
+  background-color: #8C006E;
+}
+

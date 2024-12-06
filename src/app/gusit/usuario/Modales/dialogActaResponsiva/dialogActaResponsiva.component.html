@@ -1,0 +1,92 @@
+<div class="preview-container">
+  <!-- Barra de herramientas con botones de Guardar PDF e Imprimir PDF -->
+  <div class="toolbar">
+    <button mat-button class="boton-acciones" (click)="downloadActa()">Guardar PDF</button>
+    <button mat-button class="boton-acciones" (click)="printActa()">Imprimir PDF</button>
+  </div>
+
+  <!-- Contenido principal de la carta responsiva -->
+  <div class="carta-responsiva" id="contentToConvert" #contentToConvert>
+    <!-- Cabecera con logotipos -->
+    <div class="header">
+      <img class="ircep" src="./assets/img/ircep.png" alt="Logo IRCEP">
+      <img class="geomatica" src="./assets/img/geomatica.png" alt="Logo Geomática">
+    </div>
+
+    <!-- Fecha actual -->
+    <p class="date">{{ fechaActual }}</p>
+
+    <!-- Título de la carta responsiva -->
+    <div>
+      <p class="asunto">ACTA RESPONSIVA PARA ALTA</p>
+      <p class="asunto">DE USUARIO EN APLICATIVOS DE IRCEP</p>
+    </div>
+
+    <!-- Saludo estimado/a -->
+    <p class="estimado">
+      Estimado/a
+      <span [style.color]="(form.get('apellidoPrimero').value || form.get('apellidoSegundo').value || form.get('nombre').value) ? 'black' : 'red'">
+        {{ form.get('apellidoPrimero').value || '----' }} {{ form.get('apellidoSegundo').value || '----' }} {{ form.get('nombre').value || '----' }}
+      </span>
+    </p>
+
+    <!-- Información sobre el área de desarrollo geomático -->
+    <div class="info-dependencia">
+      <p>Unidad Administrativa: <span class="bold">Secretaría de Planeación y Finanzas</span></p>
+      <p>Dependencia: <span class="bold">Instituto Registral y Catastral del Estado de Puebla</span></p>
+      <p>Departamento/Área:
+        <span [style.color]="areaNombre ? 'black' : 'red'" class="bold">{{ areaNombre || '----' }}</span>
+      </p>
+    </div>
+
+    <!-- Datos de usuario y contraseña -->
+    <ul class="recuadro-user-passw">
+      <li class="user-passw">Usuario:
+        <span class="bold" [style.color]="form.get('usuario').value ? 'black' : 'red'">
+          {{ form.get('usuario').value || '----' }}
+        </span>
+      </li>
+      <li class="user-passw">Contraseña:
+        <span class="bold" [style.color]="form.get('passwd').value ? 'black' : 'red'">
+          {{ form.get('passwd').value || '----' }}
+        </span>
+      </li>
+    </ul>
+
+    <!-- Mensaje de aceptación -->
+    <p>Por este medio acepto que he recibido el usuario y la contraseña de acceso a los aplicativos de IRCEP. Me comprometo a:</p>
+    <ul>
+      <li>Responder por el uso que se haga de estos datos.</li>
+      <li>Guardar la contraseña en absoluta confidencialidad.</li>
+      <li>Actuar con total discreción en su manejo.</li>
+    </ul>
+
+    <!-- Condiciones -->
+    <h3 class="bold">CONDICIONES:</h3>
+    <ul class="condiciones">
+      <li>El usuario y contraseña asignados son de uso personal e intransferible.</li>
+      <li>La clave de acceso será secreta y conocida únicamente por el usuario responsable.</li>
+      <li>Cada usuario dispondrá de un único usuario y contraseña para todos los aplicativos de la institución.</li>
+      <li>En caso de rotación de personal, el usuario responsable de la clave de acceso debe notificar su cambio o baja.</li>
+      <li>Si olvida su contraseña, deberá enviar un correo desde su cuenta institucional a: <span class="bold">natali.ramiez&#64;ircep.gob.mx</span>.</li>
+      <li>Es responsabilidad del usuario manejar adecuadamente la información a la que tiene acceso.</li>
+    </ul>
+
+    <!-- Información adicional -->
+    <p>
+      Al recibir este documento, se compromete a aplicar el Acuerdo de Confidencialidad y seguir las recomendaciones para el manejo y almacenamiento
+      de información. Si no está de acuerdo con los términos definidos, solicite la desactivación de su usuario.
+    </p>
+
+    <!-- Firma de conformidad -->
+    <p class="conformidad">Firma de Conformidad</p>
+    <div class="firma">
+      <p>_______________________________________________</p>
+      <p>
+        <span [style.color]="(form.get('apellidoPrimero').value || form.get('apellidoSegundo').value || form.get('nombre').value) ? 'black' : 'red'">
+          {{ form.get('apellidoPrimero').value || '----' }} {{ form.get('apellidoSegundo').value || '----' }} {{ form.get('nombre').value || '----' }}
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

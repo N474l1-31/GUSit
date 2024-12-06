@@ -1,0 +1,33 @@
+<h2 mat-dialog-title class="titulo">EDITAR SISTEMA</h2>
+
+<div class="campos-dialog">
+  <form [formGroup]="editaSistemaForm" (ngSubmit)="editarSistema()" >
+    <div class="campos-estilo">
+      <mat-form-field class="campos-formulario">
+        <mat-label>Nomeclatura del Sistema</mat-label>
+        <input matInput disabled = "nombre" [value] = "sistemaActualizado.nombre" >
+      </mat-form-field>
+      <mat-form-field class="campos-formulario">
+        <mat-label>Descripción</mat-label>
+          <input matInput formControlName = "descripcion" [value] = "sistemaActualizado.descripcion" >
+          <mat-error *ngIf="editaSistemaForm?.get('descripcion')?.hasError('descripcionInvalido')" class="letrero-campo-vacio">
+            Descripción inválida. Ingresa solo letras y no dejes el campo vacío.
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field class="campos-formulario">
+        <mat-label>Versión</mat-label>
+          <input matInput formControlName = "version" title = "VersionSistema" [value] = "sistemaActualizado.versionSistema">
+          <mat-error *ngIf="editaSistemaForm?.get('version')?.hasError('versionInvalida')" class="letrero-campo-vacio">
+            Versión inválida. Ingresa solo letras, punto y numeros.
+          </mat-error>
+      </mat-form-field>
+      
+      <div class="centrar-botones" >
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+    </div>
+</form>
+</div>
+
+

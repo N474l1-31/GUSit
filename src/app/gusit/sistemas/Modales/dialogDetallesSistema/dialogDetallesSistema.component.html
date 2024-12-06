@@ -1,0 +1,19 @@
+<h2 mat-dialog-title class="titulo">DETALLES DE SISTEMA</h2>
+<div class="contenedor-detalles">
+  <div class="avatar-container">
+    <img class="avatar" src="./assets/img/detallesSistema.png" title="Detalles de Sistema">
+    <div class="etiqueta-sistema">
+      <p><strong>Nombre:</strong> {{ sistemaDetalles?.nombre }}</p>
+      <p><strong>Status:</strong> {{ sistemaDetalles?.status }}</p>
+      <p><strong>Responsable:</strong> {{ sistemaDetalles?.responsable }}</p>
+    </div>
+  </div>
+  &nbsp;
+  &nbsp;
+  <div class="etiquetas">
+    <p><strong>Descripción:</strong> {{ sistemaDetalles?.descripcion.toUpperCase() }}</p>
+    <p><strong>Tipo:</strong> {{ sistemaDetalles?.tipo.toUpperCase() }}</p>
+    <p><strong>Versión:</strong> {{ sistemaDetalles?.versionSistema }}</p>
+  </div>
+</div>
+

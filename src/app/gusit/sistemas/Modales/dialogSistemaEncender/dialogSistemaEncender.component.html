@@ -1,0 +1,23 @@
+<h2 mat-dialog-title class="titulo">El Sistema se REACTIVARÁ, de igual forma lo harán sus Usuarios, Perfiles y Vistas.</h2>
+
+<div class="campos-dialog">
+  <form [formGroup] = "reactivarSistemaForm" (ngSubmit)="reactivaSistema()">
+    <div class="campos-estilo">
+      <mat-form-field class="campo-sistema">
+        <mat-label>Sistema</mat-label>
+          <input matInput readonly= "sistema" [value] = "sistemaEncendido.nombre" >
+      </mat-form-field>
+
+      <mat-form-field class="campo-sistema">
+        <mat-label>Versión</mat-label>
+          <input matInput readonly= "version" [value] = "sistemaEncendido.versionSistema" >
+      </mat-form-field>
+    </div>
+
+      <div class="centrar-botones">
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+  </form>
+</div>
+

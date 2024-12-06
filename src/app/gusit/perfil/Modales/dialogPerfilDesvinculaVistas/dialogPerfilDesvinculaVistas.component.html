@@ -1,0 +1,48 @@
+<h2 mat-dialog-title class="titulo">DESVINCULA PERFIL DE SISTEMA-VISTAS</h2>
+
+  <div class="campos-dialog">
+    <form [formGroup] = "desvinculaPerfilSVForm" (ngSubmit)="desvincularPerfilASistemaVistas()">
+      <div class="campos-estilo">
+        <mat-form-field class="campo-perfil">
+          <mat-label>Perfil</mat-label>
+            <input matInput readonly = "perfil" [value] = "perfilSVDesvinculado.perfil" >
+        </mat-form-field>
+
+        <mat-form-field class="campo-sistema">
+          <mat-label> Seleccionar Sistema </mat-label>
+          <mat-select formControlName="sistema" >
+            <mat-option *ngFor="let sistemaVinculado of sistemasActivosVinculados" [value]="sistemaVinculado.nombre">
+              {{sistemaVinculado.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+        <div *ngIf="vistasVinculadas.length > 0">
+          <p class="indicaciones" >Selecciona las VISTAS que deseas Desvincular del Perfil:</p>
+
+          <div class="vistas-filas">
+            <div class="vistas-columnas"  *ngFor="let vista of vistasVinculadas; let i = index">
+              <mat-checkbox [checked]="false" [value]="vista.vista" (change)="updateSelectedVistas($event, vista.vista)">
+                {{ vista.vista }}
+              </mat-checkbox>
+            </div>
+          </div>
+        </div>
+
+        <div class="centrar-botones">
+          <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+          <button mat-button class="boton-acciones" type="submit">Guardar</button>
+        </div>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+<h2 mat-dialog-title class="titulo">VINCULA SISTEMA A VISTAS</h2>
+
+<div class="campos-dialog">
+  <form [formGroup]="vincularSistemaVistasForm" (ngSubmit)="vinculaSistemaAVistas()">
+    <div class="campos-estilo">
+      <mat-form-field>
+        <mat-label>Sistema</mat-label>
+        <input matInput  [value]="sistemaVistasVinculada.nombre" readonly>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="noVistas && noVistas.length > 0" class="vistas-container">
+      <p class="indicaciones">Selecciona las VISTAS que deseas Vincular al Sistema:</p>
+
+      <div class="vistas-filas">
+        <div class="vistas-columnas" *ngFor="let vista of noVistas; let i = index">
+          <mat-checkbox [checked]="false" [value]="vista.vista" (change)="updateSelectedVistas($event, vista.vista)">
+            {{ vista.vista }}
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="centrar-botones">
+      <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+      <button mat-button class="boton-acciones" type="submit">Guardar</button>
+    </div>
+  </form>
+</div>

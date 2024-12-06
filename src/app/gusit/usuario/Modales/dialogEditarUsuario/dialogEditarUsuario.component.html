@@ -1,0 +1,51 @@
+<h2 mat-dialog-title class="titulo">EDITAR USUARIO</h2>
+
+<div class="campos-dialog">
+  <form [formGroup]="editarUsuarioForm" (ngSubmit)="validarEditarUsuario()" >
+    <div class="campos-estilo">
+      <mat-form-field class="campos-formulario">
+        <mat-label>Usuario</mat-label>
+          <input matInput disabled = "usuario" [value] = "usuarioActualizado.usuario" title="Usuario Actulizado">
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Nombre</mat-label>
+        <input matInput title="Nombre" formControlName = "nombre">
+        <mat-error *ngIf="editarUsuarioForm?.get('nombre')?.hasError('nombreCompletoInvalido')" class="letrero-campo-vacio">
+          Nombre inválido. Ingresa solo letras y no dejes el campo vacío.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Apellido Paterno</mat-label>
+          <input matInput formControlName = "apellidoPrimero" [value] = "usuarioActualizado.apellidoPrimero" title="ApellidoP Actualizado">
+          <mat-error *ngIf="editarUsuarioForm?.get('apellidoPrimero')?.hasError('nombreCompletoInvalido')" class="letrero-campo-vacio">
+            Apellido inválido. Ingresa solo letras y no dejes el campo vacío.
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label>Apellido Materno</mat-label>
+          <input matInput formControlName = "apellidoSegundo" [value] = "usuarioActualizado.apellidoSegundo" title="ApellidoM Actuslizado">
+          <mat-error *ngIf="editarUsuarioForm?.get('apellidoSegundo')?.hasError('nombreCompletoInvalido')" class="letrero-campo-vacio">
+            Apellido inválido. Ingresa solo letras y no dejes el campo vacío.
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="campos-formulario">
+        <mat-label> Área </mat-label>
+        <mat-select formControlName="idArea" >
+          <mat-option *ngFor="let area of areasData" [value]="area.idArea">{{area.area}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="centrar-botones" >
+        <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+        <button mat-button class="boton-acciones" type="submit">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+

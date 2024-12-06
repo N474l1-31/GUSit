@@ -1,0 +1,38 @@
+<div class="background-container login-background">
+  <div id="particles-js"></div>
+  <div class="box">
+    <div class="box-form">
+      <div class="box-login-tab"></div>
+      <div class="box-login-title">
+        <div class="i i-login"></div>
+
+      </div>
+      <form [formGroup]="loginForm">
+        <div class="box-login">
+          <img class="logo" src="./assets/img/logo.png" alt="logoGusit" />
+
+          <div class="fieldset-body" id="login_form">
+            <mat-form-field class="campos-formulario">
+              <mat-label>Usuario</mat-label>
+              <input matInput title="Nombre" formControlName = "usuario">
+            </mat-form-field>
+
+            <mat-form-field class="campos-formulario">
+              <mat-label>Contraseña</mat-label>
+              <input matInput [type]="ocultar ? 'password' : 'text'" formControlName="passwd" />
+              <button mat-icon-button matSuffix (click)="ocultar = !ocultar" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="ocultar">
+                <mat-icon>{{ocultar ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <button mat-button class="button-login" type="button" value="INGRESAR" title="Login G-USIT" (click)="enviaFormLogin(loginForm.value)"  >
+              LOGIN
+            </button>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

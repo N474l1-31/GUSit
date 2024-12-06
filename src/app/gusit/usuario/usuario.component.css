@@ -1,0 +1,176 @@
+.example-header { /* Contenedor Total (MAT - TAB) */
+  background-color: transparent;
+}
+
+.estilo {
+  background-color: rgba(64, 85, 245, 0.1);
+  height: 700px;
+}
+
+.fila-oculta {
+  display: none;
+}
+
+.filtro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filtro-usuario {
+  width: 10vw; /* Seguir usando ancho relativo */
+  min-width: 150px; /* Pero no permitir que el ancho baje de este valor */
+  margin-left: 5vw;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.button-acciones {
+  display: flex;
+  justify-content: space-around; /* Distribuir los botones en todo el espacio disponible */
+  padding: 2px;
+}
+
+.usuario-status {
+  border-radius: 5rem;
+  text-align: center;
+  margin: 0 auto;
+  width: 20vw;
+  max-width: 150px;
+  min-width: 100px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.activo{
+  background-color: #86e49d;
+  color: #006b21;
+  font-weight: bold;
+}
+
+.inactivo{
+  background-color: #FF9966;
+  color: #C62D42;
+  font-weight: bold;
+}
+
+.apagado{
+  background-color: #C8C8CD;
+  color: #000000;
+  font-weight: bold;
+}
+
+.proceso{
+  background-color: #FBE7B2;
+  color:	#E77200;
+  font-weight: bold;
+}
+
+.mat-icon-button {
+  margin: 0 5px;
+}
+
+.div-tabla-usuarios {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.div-tabla-usuarios table tr.fila-hover:hover {
+  background-color:  rgba(0,70,140,0.1);
+}
+
+.tabla-modulo-usuario {
+  width: 100%; /* Asegurarse de que la tabla ocupe todo el espacio disponible */
+  max-width: 95vw; /* Ajustar el máximo ancho al 95% de la pantalla */
+  margin-bottom: 30px;
+  background-color: transparent;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.encabezados {
+  background-color: #2A39A3;
+  text-align: center;
+  color:white;
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  width: 20%;
+}
+
+.resultados {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: #00458A;
+  text-align: center;
+}
+
+.diseño-paginator {
+  background-color: rgba(0, 70, 140, 0.4) !important;
+  font-size: 16px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;  /* Sin redondeo en la esquina superior derecha */
+  border-bottom-left-radius: 15px;  /* Redondeo en la esquina inferior izquierda */
+  border-bottom-right-radius: 15px;
+  font-weight: bold;
+  color: #00468C;
+  width: 100%;
+}
+
+/* __________________________________________________  MIS USUARIOS   __________________________________________________ */
+.button-agregar-usuario {
+  background-color: rgba(0, 70, 140, 0.5);
+  color: white !important;
+  padding: 10px 20px; /* Ajusta el tamaño del botón */
+  min-width: 150px;
+  max-width: 200px;
+  text-align: center;
+  white-space: nowrap; /* Evita que el texto del botón se divida en varias líneas */
+  flex-shrink: 0;     /* Evita que el botón se haga más pequeño */
+  margin-right: 200px;
+}
+
+.icon-detalles-usuario {
+  color: #218838;
+} 
+
+.icon-editar-usuario {
+  color: #FCC419;
+}
+
+.icon-reset-pass {
+  color: #4DD0E1;
+}
+
+.icon-activar-usuario {
+  color: #00468C;
+}
+
+.icon-inactivar-usuario {
+  color: #FF0000;
+}
+
+/* __________________________________________________  VINCULAR - USUARIO   __________________________________________________ */
+.icon-vincular-usuario{
+  color: #CA23A4;
+}
+
+/* __________________________________________________  DESVINCULAR - USUARIO   __________________________________________________ */
+.icon-cambia-perfil {
+  color: #2B77C0;
+}
+
+.icon-desvincula-usuario {
+  color: #F04451;
+}
+
+/* __________________________________________________  PANTALLAS   __________________________________________________ */
+@media (max-width: 1000px) {
+  .div-tabla-allUsuarios {
+    margin-left: 2vw; /* Ajustar el margen en pantallas pequeñas */
+    margin-right: 2vw;
+  }
+}

@@ -1,0 +1,49 @@
+<h2 mat-dialog-title class="titulo">DETALLES DE SISTEMA VISTA => PERFILES</h2>
+
+  <div class="campos-dialog">
+    <div class="campos-estilo">
+      <mat-form-field class= "campo-vista-sistema">
+        <mat-label>Sistema</mat-label>
+          <input matInput readonly = "vista" [value] = "detallesVistaSistemaPerfiles.nombre" >
+        </mat-form-field>
+
+      <mat-form-field class="campo-vista-sistema">
+        <mat-label>Seleccionar Perfil</mat-label>
+          <mat-select [(value)]="selectedPerfil" (selectionChange)="buscarVistas()">
+            <mat-option *ngFor="let perfilVinculado of perfilesActivosVinculados" [value]="perfilVinculado.nombre">
+              {{perfilVinculado.nombre}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+    </div>
+
+      <div class="div-tabla-detalles">
+        <table mat-table class="tabla-detalles" [dataSource]="dataSourceDetalles">
+
+          <ng-container matColumnDef="Vista">
+            <th mat-header-cell *matHeaderCellDef class="encabezados-detalles" > VISTA </th>
+            <td mat-cell *matCellDef="let vista" class="resultados-detalles"> {{vista.perfil}} </td>
+          </ng-container>
+
+            <ng-container matColumnDef="Status">
+              <th mat-header-cell *matHeaderCellDef class="encabezados-detalles"> STATUS </th>
+              <td mat-cell *matCellDef="let vista">
+                <div class="status"  [ngClass]="vista.StatusVistaPerfil.toLowerCase()">
+                  {{vista.StatusVistaPerfil | uppercase}}
+                </div>
+              </td>
+            </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsDetalles" class="encabezados-detalles"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsDetalles;" class="fila-hover"></tr>
+        </table>
+        <mat-paginator #paginacionDetalles class="diseño-paginator" [pageSizeOptions]="[3, 10, 15]" showFirstLastButtons> </mat-paginator>
+      </div>
+
+    </div>
+
+
+
+
+
+
+

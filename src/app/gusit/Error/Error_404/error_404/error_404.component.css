@@ -1,0 +1,51 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/assets/img/error404.png'); /* Cambia 'error404.png' por el nombre de tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: rgb(35, 49, 128); /* Asegúrate de que el texto sea legible sobre la imagen de fondo */
+}
+
+.error-page .mensaje {
+  font-weight: bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.error-page a {
+  margin-top: 50px;
+  text-decoration: none;
+  color: #800c63;
+  font-size: 1.2em;
+  background-color: rgba(60, 97, 171, 0.5);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .error-page p {
+    font-size: 1.2em;
+  }
+
+  .error-page a {
+    font-size: 1em;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-page p {
+    font-size: 1em;
+  }
+
+  .error-page a {
+    font-size: 0.8em;
+    padding: 6px 12px;
+  }
+}

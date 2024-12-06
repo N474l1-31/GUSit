@@ -1,0 +1,93 @@
+.titulo {
+  color: #00468C;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.centrar-contenido{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Mantiene los elementos centrados horizontalmente */
+  justify-content: center;
+  width: 100%; /* Asegúrate de que el contenedor ocupe el ancho completo */
+  margin: 0 auto; /* Centra el contenido */
+  text-align: center; /* Centra el texto dentro de los elementos */
+}
+
+.campos-estilo {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; /* Centra el elemento */
+}
+
+.campos-formulario {
+  width: 100%;
+  margin: 0 auto; /* Centra el formulario */
+  text-align: center; /* Centra el texto de los elementos */
+}
+
+.centrar-botones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  flex-wrap: wrap;
+}
+
+.boton-acciones{
+  width: 45%; /* Mantiene el ancho de los botones en pantallas más grandes */
+  background-color: #00468C;
+  color: white;
+  transition: background-color 0.3s;
+  margin: 0 10px;
+  margin-top: 10px;
+}
+
+.boton-acciones:hover,
+.boton-acciones:active {
+  background-color: #8C006E;
+}
+
+.button-generar {
+  margin-left: 20px;
+  background-color: rgba(0, 70, 140, 0.5);
+  color: white !important;
+  margin-right: 10px;
+}
+
+.letrero-campo-vacio{
+  font-weight: bold;
+}
+
+
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 1.2em;
+  }
+
+  .campos-formulario {
+    font-size: 1.0em;
+  }
+
+  .campos-estilo {
+    max-width: 80%;
+    padding: 0 5px;
+    margin: 0 auto;
+  }
+
+  .boton-acciones {
+    flex: 1 1 35%;
+    margin: 5px 2.5%;
+    font-size: 0.9em;
+  }
+
+  .letrero-campo-vacio{
+    font-weight: bold;
+    font-size: .65em;
+  }
+}

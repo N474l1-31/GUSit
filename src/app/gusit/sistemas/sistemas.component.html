@@ -1,0 +1,189 @@
+<mat-tab-group class="example-header" mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="changeFiltroSistema()" >
+
+  <mat-tab label="MIS SISTEMAS">
+    <div class="estilo">
+      <div class="filtro-container">
+        <button mat-button class="button-agregar-sistema" type="button" (click)="dialogRegistrarSistema(sistema)">
+          <mat-icon>add_to_queue</mat-icon>Agregar Sistema
+        </button>
+
+        <mat-form-field class="filtro-sistemas">
+          <mat-label>Buscar Sistema</mat-label>
+          <input matInput placeholder="SISTEMA" #input [(ngModel)]="filtroSistema" (input)="filtroMisSistemas()">
+        </mat-form-field>
+      </div>
+
+        <div class="div-tabla-sistema">
+          <table mat-table class="tabla-modulo-sistema" [dataSource]="dataSourceSistemas">
+            <!--  Columna Sistema -->
+            <ng-container matColumnDef="Sistema">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> SISTEMA </th>
+              <td mat-cell *matCellDef="let sistema">
+                <div class="sistema-status" [ngClass]="{'activo': sistema.status === 'Activo','apagado': sistema.status === 'Apagado', 'proceso': sistema.status === 'Proceso'}">
+                  {{sistema.nombre}}
+                </div>
+              </td>
+            </ng-container>
+          <!--  Columna Responsable -->
+          <ng-container matColumnDef="Responsable">
+            <th mat-header-cell *matHeaderCellDef class="encabezados" > RESPONSABLE </th>
+            <td mat-cell *matCellDef="let sistema" class="resultados"> {{sistema.responsable}} </td>
+          </ng-container>
+            <!-- Acciones-->
+            <ng-container matColumnDef="Acciones">
+              <th mat-header-cell *matHeaderCellDef style="width: 80px;">  </th>
+              <td mat-cell *matCellDef="let sistema">
+                <div class="button-acciones">
+                  <button mat-icon-button class="icon-detalles-sistema" title="Detalles de Sistema" type="button" (click)="dialogDetallesSistema(sistema)">
+                    <mat-icon>description</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-editar-sistema" title="Editar Sistema" type="button" (click)="dialogEditarSistema(sistema)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-cambiar-responsable" title="Cambiar Responsable" type="button" (click)="dialogCambiarResponsableSistema(sistema)">
+                    <mat-icon>assignment_ind</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-encender-sistema" title="Encender Sistema" type="button" (click)="dialogEncenderSistema(sistema)">
+                    <mat-icon>settings_power </mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-apagar-sistema" title="Apagar Sistema" type="button" (click)="dialogApagarSistema(sistema)">
+                    <mat-icon>block icon</mat-icon>
+                  </button>
+                </div>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" class="encabezados"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="fila-hover"></tr>
+          </table>
+          <mat-paginator #paginacionSistemas class="diseño-paginator" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons> </mat-paginator>
+        </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="CONFIGURACIÓN DE SISTEMAS">
+    <div class="estilo">
+      <div class="filtro-container" >
+        <mat-form-field class="filtro-sistemas">
+          <mat-label> Buscar Sistema</mat-label>
+            <input matInput placeholder="SISTEMA" #input [(ngModel)]="filtroSistema" (input)="filtroMisSistemas()">
+        </mat-form-field>
+      </div>
+
+      <div class="div-tabla-sistema">
+        <table mat-table  class="tabla-modulo-sistema" [dataSource]="dataSourceConfiguracionSistemas">
+
+          <!--  Columna Sistema -->
+          <ng-container matColumnDef="Sistema">
+            <th mat-header-cell *matHeaderCellDef class="encabezados"> SISTEMA </th>
+            <td mat-cell *matCellDef="let sistema">
+              <div class="sistema-status" [ngClass]="{'activo': sistema.status === 'Activo','apagado': sistema.status === 'Apagado', 'proceso': sistema.status === 'Proceso'}">
+                {{sistema.nombre}}
+              </div>
+            </td>
+          </ng-container>
+
+          <!--  Columna Responsable -->
+          <ng-container matColumnDef="Responsable">
+            <th mat-header-cell *matHeaderCellDef class="encabezados" > RESPONSABLE </th>
+            <td mat-cell *matCellDef="let sistema" class="resultados"> {{sistema.responsable}} </td>
+          </ng-container>
+
+          <!-- Acciones-->
+          <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef style="width: 80px;">  </th>
+            <td mat-cell *matCellDef="let sistema">
+              <div class="button-acciones">
+                <button mat-icon-button class="icon-activar-sistema" title="Activar Sistema"  type="button" (click)="dialogActivarSistema(sistema)">
+                  <mat-icon>settings_power </mat-icon>
+                </button>
+                <button mat-icon-button class="icon-vincular-usuarios" title="Vincular Perfiles" type="button" (click)="dialogVinculaSistemaPerfiles(sistema)">
+                  <mat-icon>people_outline</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-desvincular-usuarios" title="Desvincular Perfiles" type="button" (click)="dialogDesvinculaSistemaPerfiles(sistema)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-vincular-perfiles" title="Vincular Usuarios" type="button" (click)="dialogVinculaSistemaUsuarios(sistema)">
+                  <mat-icon>diversity_3</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-desvincular-perfiles" title="Desvincular Usuarios" type="button"  (click)="dialogDesvinculaSistemaUsuarios(sistema)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-vincular-vistas" title="Vincular Vistas" type="button" (click)="dialogVinculaSistemaVistas(sistema)" >
+                  <mat-icon>settings_brightness</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-desvincular-vistas" title="Desvincular Vistas" type="button" (click)="dialogDesvinculaSistemaVistas(sistema)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsConfiguracionSistemas" class="encabezados"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsConfiguracionSistemas" class="fila-hover"></tr>
+        </table>
+        <mat-paginator #paginacionSistemasConfiguracionSistemas class="diseño-paginator" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons> </mat-paginator>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="DETALLES SISTEMAS">
+      <div class="estilo">
+        <div class="filtro-container">
+          <mat-form-field class="filtro-sistemas">
+            <mat-label>Buscar Sistema</mat-label>
+            <input matInput placeholder="SISTEMA" #input [(ngModel)]="filtroSistema" (input)="filtroMisSistemas()">
+          </mat-form-field>
+        </div>
+
+      <div class="div-tabla-sistema">
+        <table mat-table  class="tabla-modulo-sistema" [dataSource]="dataSourceDetallesSistemas">
+
+          <!--  Columna Sistema -->
+          <ng-container matColumnDef="Sistema">
+            <th mat-header-cell *matHeaderCellDef class="encabezados"> SISTEMA </th>
+            <td mat-cell *matCellDef="let sistema">
+              <div class="sistema-status" [ngClass]="{'activo': sistema.status === 'Activo','apagado': sistema.status === 'Apagado', 'proceso': sistema.status === 'Proceso'}">
+                {{sistema.nombre}}
+              </div>
+            </td>
+          </ng-container>
+
+          <!--  Columna Responsable -->
+          <ng-container matColumnDef="Responsable">
+            <th mat-header-cell *matHeaderCellDef class="encabezados" > RESPONSABLE </th>
+            <td mat-cell *matCellDef="let sistema" class="resultados"> {{sistema.responsable}} </td>
+          </ng-container>
+
+          <!-- Acciones-->
+          <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef style="width: 80px;">  </th>
+            <td mat-cell *matCellDef="let sistema">
+              <div class="button-acciones">
+                <button mat-icon-button class="icon-detalles-perfiles" type="button" title="Perfiles del Sistema" (click)="dialogDetallesSistemaPerfiles(sistema)">
+                  <mat-icon>people_outline</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-detalles-usuarios" type="button" title="Usuarios del Sistema" (click)="dialogDetallesSistemaUsuarios(sistema)">
+                  <mat-icon>diversity_3</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-detalles-vistas" type="button" title=" Vistas del Sistema" (click)="dialogDetallesSistemaVistas(sistema)">
+                  <mat-icon>settings_brightness</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-detalles-personalizados-sistema-perfil" type="button" title="Detalles de Sistemas Perfil-Vistas" (click)="dialogDetallesSistemaPerfilVistas(sistema)">
+                  <mat-icon>view_quilt</mat-icon>
+                </button>
+                <button mat-icon-button class="icon-detalles-personalizados-sistema-perfil-control" title="Detalles de  Sistema Perfiles-Vista-Controles" (click)="dialogDetallesSistemaPerfilVistaControles(sistema)">
+                  <mat-icon>control_camera</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsDetallesSistema" class="encabezados"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsDetallesSistema;" class="fila-hover"></tr>
+        </table>
+        <mat-paginator #paginacionSistemasDetallesUsuarios class="diseño-paginator" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons> </mat-paginator>
+      </div>
+    </div>
+  </mat-tab>
+
+</mat-tab-group>

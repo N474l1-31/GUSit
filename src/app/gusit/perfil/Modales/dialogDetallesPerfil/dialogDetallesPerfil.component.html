@@ -1,0 +1,21 @@
+<h2 mat-dialog-title class="titulo">DETALLES DE PERFIL</h2>
+<div class="contenedor-detalles">
+  <div class="avatar-container">
+    <img class="avatar" src="./assets/img/detallesPerfil.png" />
+    <div class="etiqueta-sistema">
+      <p><strong>Nombre:</strong> {{ perfilDetalles?.perfil}}</p>
+    </div>
+  </div>
+
+  <div class="etiquetas">
+    <p [ngClass]="{ 'sin-sistemaVD': !perfilDetalles?.Activo}">
+      <strong>Sistemas Vinculados:</strong> {{ perfilDetalles?.Activo || 'Sin sistema Vinculado' }}
+    </p>
+  </div>
+
+  <div class="etiquetas">
+    <p [ngClass]="{'sin-sistemaVD': !perfilDetalles?.Inactivo}">
+      <strong>Sistemas Desvinculados:</strong> {{ perfilDetalles?.Inactivo || 'Sin Registro' }}
+    </p>
+  </div>
+</div>

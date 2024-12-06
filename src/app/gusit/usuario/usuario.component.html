@@ -1,0 +1,221 @@
+<mat-tab-group class="example-header" mat-stretch-tabs="false" mat-align-tabs="center" (selectedTabChange)="changeFiltroUsuario()" >
+
+  <mat-tab label = "MIS USUARIOS">
+    <div class="estilo">
+
+      <div class="filtro-container">
+        <button mat-button class="button-agregar-usuario" (click)="dialogRegistrarUsuario(altaUsuario)" type="button">
+          <mat-icon>person_add</mat-icon>Agregar Usuario
+        </button>
+
+        <mat-form-field class="filtro-usuario">
+          <mat-label>Buscar Usuario</mat-label>
+            <input matInput placeholder="USUARIO" #input [(ngModel)]="filtroUsuario" (input)="filtroMisUsuarios()">
+        </mat-form-field>
+      </div>
+
+      <div class="div-tabla-usuarios">
+        <table  mat-table class="tabla-modulo-usuario " [dataSource]="dataSource">
+
+        <!--  Columna Usuario -->
+          <ng-container matColumnDef="Usuario">
+            <th mat-header-cell *matHeaderCellDef class="encabezados"> USUARIO </th>
+            <td mat-cell *matCellDef="let usuarios">
+              <div class="usuario-status" [ngClass]="{'activo': usuarios.statuss === 'Activo', 'inactivo': usuarios.statuss === 'Inactivo', 'apagado': usuarios.statuss === 'Apagado', 'proceso': usuarios.statuss === 'Proceso'}">
+                  {{usuarios.usuario }}
+              </div>
+            </td>
+          </ng-container>
+
+            <!--  Columna Nombre -->
+            <ng-container matColumnDef="Nombre">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> NOMBRE </th>
+              <td mat-cell *matCellDef="let usuarios" class="resultados"> {{usuarios.nombre | uppercase}} </td>
+            </ng-container>
+
+            <!--  Columna Apellido Paterno -->
+            <ng-container matColumnDef="A.Paterno">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> APELLIDO PATERNO</th>
+              <td mat-cell *matCellDef="let usuarios" class="resultados"> {{usuarios.apellidoPrimero | uppercase}} </td>
+            </ng-container>
+
+            <!--  Columna Apellido Materno -->
+            <ng-container matColumnDef="A.Materno">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> APELLIDO MATERNO </th>
+              <td mat-cell *matCellDef="let usuarios" class="resultados"> {{usuarios.apellidoSegundo | uppercase}} </td>
+            </ng-container>
+
+            <!-- Acciones-->
+            <ng-container matColumnDef="Acciones">
+              <th mat-header-cell *matHeaderCellDef style="width: 80px;">  </th>
+              <td mat-cell *matCellDef="let usuarios" >
+                <div class="button-acciones">
+                  <button mat-icon-button class="icon-detalles-usuario" type="button" title="Detalles de Usuario" (click)="dialogDetallesUsuario(usuarios)">
+                    <mat-icon>description</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-editar-usuario" type="button" title="Editar Usuario" (click)="dialogEditarUsuario(usuarios)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-reset-pass" type="button"title="Cambiar Contraseña" (click)="dialogCambiarPass(usuarios)" >
+                    <mat-icon>lock_reset </mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-activar-usuario" type="button" title="Activar Usuario" (click)="dialogActivarUsuario(usuarios.usuario)">
+                    <mat-icon>settings_power </mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-inactivar-usuario" type="button"  title="Inactivar Usuario" (click)="dialogEliminarUsuario(usuarios.usuario)">
+                    <mat-icon>block icon</mat-icon>
+                  </button>
+                </div>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" class="encabezados"> </tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"  class="fila-hover"></tr>
+          </table>
+            <mat-paginator #paginacionUsuarios class="diseño-paginator" [pageSizeOptions]="[5,10]" showFirstLastButtons> </mat-paginator>   <!-- showFirstLastButtons Nos muestra los botones de (Primera página y Última página)-->
+        </div>
+
+    </div>
+
+  </mat-tab>
+
+    <mat-tab label = "VINCULAR USUARIO">
+      <div class="estilo">
+        <div class="filtro-container" >
+          <mat-form-field class="filtro-usuario">
+            <mat-label>Buscar Usuario</mat-label>
+              <input matInput placeholder="USUARIO" #input [(ngModel)]="filtroUsuario" (input)="filtroMisUsuarios()">
+          </mat-form-field>
+        </div>
+
+        <div class="div-tabla-usuarios">
+          <table mat-table class="tabla-modulo-usuario" [dataSource]="dataSourceVincular">
+
+            <!-- Columna Usuario -->
+            <ng-container matColumnDef="Usuario">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> USUARIO </th>
+              <td mat-cell *matCellDef="let usuarios">
+                <div class="usuario-status" [ngClass]="{'activo': usuarios.statuss === 'Activo'}">
+                  {{usuarios.usuario}}
+                </div>
+              </td>
+            </ng-container>
+
+            <!--  Columna Nombre -->
+            <ng-container matColumnDef="Nombre">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> NOMBRE </th>
+              <td mat-cell *matCellDef="let usuarios" class="resultados"> {{usuarios.nombre}} </td>
+            </ng-container>
+
+            <!--  Columna Apellido Paterno -->
+            <ng-container matColumnDef="A.Paterno">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> APELLIDO PATERNO</th>
+              <td mat-cell *matCellDef="let usuarios" class="resultados"> {{usuarios.apellidoPrimero}} </td>
+            </ng-container>
+
+            <!--  Columna Apellido Materno -->
+            <ng-container matColumnDef="A.Materno">
+              <th mat-header-cell *matHeaderCellDef class="encabezados"> APELLIDO MATERNO </th>
+              <td mat-cell *matCellDef="let usuarios" class="resultados"> {{usuarios.apellidoSegundo}} </td>
+            </ng-container>
+
+            <!-- Acciones-->
+            <ng-container matColumnDef="Acciones">
+              <th mat-header-cell *matHeaderCellDef style="width: 80px;">  </th>
+              <td mat-cell *matCellDef="let usuarios" >
+                <div class="button-acciones">
+                  <button mat-icon-button class="icon-detalles-usuario" type="button" title="Detalles de Usuario" (click)="dialogDetallesUsuario(usuarios)">
+                    <mat-icon>description</mat-icon>
+                  </button>
+                  <button mat-icon-button class="icon-vincular-usuario" type="button"  title="Vincular Usuario" (click)="dialogVincularUsuario(usuarios)">
+                    <mat-icon>autorenew</mat-icon>
+                  </button>
+                </div>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" class="encabezados"> </tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"  class="fila-hover"></tr>
+          </table>
+            <mat-paginator #paginacionVincular class="diseño-paginator" [pageSizeOptions]="[5, 10]" showFirstLastButtons> </mat-paginator>   <!-- showFirstLastButtons Nos muestra los botones de (Primera página y Última página)-->
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="DESVINCULAR USUARIO">
+        <div class="estilo">
+          <div class="filtro-container">
+            <mat-form-field class="filtro-usuario">
+              <mat-label>Buscar Usuario</mat-label>
+                <input matInput placeholder="USUARIO" #input [(ngModel)]="busqueda" (input)="buscarUsuario()">
+              </mat-form-field>
+          </div>
+
+          <div class="div-tabla-usuarios" >
+            <table mat-table class="tabla-modulo-usuario" [dataSource]="dataSourceDesvincular">
+
+              <!-- Columna Usuario -->
+              <ng-container matColumnDef="Usuario">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> USUARIO </th>
+                <td mat-cell *matCellDef="let usuarios">
+                  <div class="usuario-status" [ngClass]="{'activo': usuarios.statusUsuario === 'Activo', 'inactivo': usuarios.statusUsuario === 'Inactivo'}">
+                    {{usuarios.usuario}}
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Columna Sistema -->
+              <ng-container matColumnDef="Sistema">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> SISTEMA </th>
+                <td mat-cell *matCellDef="let usuarios">
+                  <div class="usuario-status" [ngClass]="{'activo': usuarios.statusSistema === 'Activo', 'inactivo': usuarios.statusSistema === 'Inactivo', 'apagado': usuarios.statusSistema === 'Apagado', 'proceso': usuarios.statusSistema === 'Proceso'}">
+                    {{usuarios.Sistema}}
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Columna Perfil -->
+              <ng-container matColumnDef="Perfil">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> PERFIL </th>
+                <td mat-cell *matCellDef="let usuarios">
+                  <div class="usuario-status" [ngClass]="{'activo': usuarios.statusSistema === 'Activo', 'inactivo': usuarios.statusSistema === 'Inactivo', 'apagado': usuarios.statusSistema === 'Apagado', 'proceso': usuarios.statusSistema === 'Proceso'}">
+                    {{usuarios.perfil}}
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Columna Status -->
+              <ng-container matColumnDef="Status-UsuarioSistemaPerfil">
+                <th mat-header-cell *matHeaderCellDef class="encabezados"> VINCULACIÓN</th>
+                <td mat-cell *matCellDef="let usuarios">
+                  <div class="usuario-status" [ngClass]="usuarios.StatusUsuarioSistemaPerfil?.toLowerCase()">
+                    {{usuarios.StatusUsuarioSistemaPerfil | uppercase}}
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Acciones -->
+              <ng-container matColumnDef="Acciones">
+                <th mat-header-cell *matHeaderCellDef style="width: 80px;">  </th>
+                <td mat-cell *matCellDef="let usuarios">
+                  <div class="button-acciones">
+                    <button mat-icon-button class="icon-cambia-perfil" title="Cambiar Perfil" type="button" (click)="dialogCambiarPerfil(usuarios)">
+                      <mat-icon>people</mat-icon>
+                    </button>
+                    <button mat-icon-button class="icon-desvincula-usuario" title="Desvincular Usuario" type="button" (click)="dialogDesvincularUsuario(usuarios)">
+                      <mat-icon>shuffle</mat-icon>
+                    </button>
+                  </div>
+                </td>
+              </ng-container>
+
+              <!-- Header y filas -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsDesvincular" class="encabezados"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsDesvincular;" class="fila-hover"></tr>
+            </table>
+            <mat-paginator #paginacionDesvinculacion class="diseño-paginator" [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+          </div>
+        </div>
+    </mat-tab>
+
+  </mat-tab-group>
+

@@ -1,0 +1,18 @@
+<h2 mat-dialog-title class="titulo">DETALLES USUARIO</h2>
+<div class="contenedor-detalles">
+  <div class="avatar-container">
+    <img class="avatar" src="./assets/img/detallesUsuario.png" />
+    <div class="etiqueta-usuario">
+      <p><strong>Usuario:</strong> {{ usuarioDetalles?.usuario }}</p>
+      <p><strong>Status:</strong> {{ usuarioDetalles?.statuss }}</p>
+    </div>
+  </div>
+  &nbsp;
+  &nbsp;
+  <div class="etiquetas">
+    <p><strong>Nombre:</strong> {{ usuarioDetalles?.nombre.toUpperCase() }}</p>
+    <p><strong>Apellido Paterno:</strong> {{ usuarioDetalles?.apellidoPrimero.toUpperCase() }}</p>
+    <p><strong>Apellido Materno:</strong> {{ usuarioDetalles?.apellidoSegundo.toUpperCase() }}</p>
+    <p><strong>Área:</strong> {{ usuarioDetalles?.area }}</p>
+  </div>
+</div>

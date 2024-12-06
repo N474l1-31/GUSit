@@ -1,0 +1,107 @@
+.titulo{
+  color: #00468C;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.centrar-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.campos-estilo {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.campos-formulario {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.centrar-tipo-de-sistema{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.letrero-sistema{
+  color: #2B77C0;
+  font-size: 1.3em;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0 100px;
+  font-weight: bold;
+}
+
+mat-radio-button {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+.centrar-botones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boton-acciones{
+background-color: #00468C;
+color: white;
+transition: background-color 0.3s;
+width: 45%;
+margin: 0 10px;
+margin-top: 10px;
+}
+
+.boton-acciones:hover,
+.boton-acciones:active {
+  background-color: #8C006E;
+}
+
+.letrero-campo-invalido {
+  font-weight: bold;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 600px) {
+  .titulo {
+    font-size: 1.2em;
+  }
+
+  .campos-formulario {
+    font-size: 1.0em;
+  }
+
+  .campos-estilo {
+    max-width: 80%;
+    padding: 0 5px;
+    margin: 0 auto;
+  }
+
+  .letrero-sistema{
+    font-size: 1em;
+  }
+
+  .boton-acciones {
+    flex: 1 1 35%;
+    margin: 5px 2.5%;
+    font-size: 0.9em;
+  }
+
+  .letrero-campo-vacio{
+    font-weight: bold;
+    font-size: .10em;
+  }
+}

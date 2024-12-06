@@ -1,0 +1,55 @@
+<h2 mat-dialog-title class="titulo">REGISTRAR SISTEMA</h2>
+
+  <div class="centrar-contenido">
+    <form [formGroup]="altaSistemasForm" (ngSubmit)="crearSistema()">
+      <div class="campos-estilo">
+        <mat-form-field class="campos-formulario">
+          <mat-label>Nomenclatura del Sistema</mat-label>
+          <input matInput formControlName="nombre" title="NombreSistema">
+          <mat-error *ngIf="altaSistemasForm?.get('nombre')?.hasError('nomeclaturaInvalido')" class="letrero-campo-invalido">
+            Ingresa solo letras, números o simbolos como "." , "-" y no dejes el campo vacío.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="campos-formulario">
+          <mat-label>Descripción</mat-label>
+            <input matInput formControlName = "descripcion" title="DescripcionSistema">
+            <mat-error *ngIf="altaSistemasForm?.get('descripcion')?.hasError('descripcionInvalido')" class="letrero-campo-invalido">
+              Descripción inválida. Ingresa solo letras y no dejes el campo vacío.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="campos-formulario">
+          <mat-label>Versión</mat-label>
+          <input matInput formControlName="version" title="VersionSistema">
+          <mat-error *ngIf="altaSistemasForm?.get('version')?.hasError('versionInvalida')" class="letrero-campo-invalido">
+            Ingresa solo letras y números, separados por punto.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="campos-formulario">
+          <mat-label>Usuario Responsable</mat-label>
+            <mat-select formControlName="nombreResponsable">
+              <mat-option *ngFor="let usuario of usuariosData" [value]="usuario">{{usuario.usuario}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="altaSistemasForm?.get('nombreResponsable')?.hasError('usuarioInvalido')" class="letrero-campo-invalido">
+              No dejes el campo vacío.
+            </mat-error>
+        </mat-form-field>
+
+        <label class="letrero-sistema">Tipo de Sistema*</label>
+        <div class="centrar-tipo-de-sistema">
+          <mat-radio-group formControlName ="tipo">
+            <mat-radio-button  value="Web">Web</mat-radio-button>
+            <mat-radio-button  value="Escritorio">Desktop</mat-radio-button>
+            <mat-radio-button  value="Movil">Móvil</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="centrar-botones" >
+          <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+          <button mat-button class="boton-acciones" type="submit">Guardar</button>
+        </div>
+      </div>
+  </form>
+</div>

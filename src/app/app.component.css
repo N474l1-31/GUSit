@@ -1,0 +1,6 @@
+:host {     /*  Se refiere al elemento del componente principal.*/
+  display: block;
+  width: 100%; /* o el tamaño específico que desees */
+  height: 100vh; /* 100% del viewport height */
+  overflow: hidden; /* para ocultar la barra de desplazamiento en la pantalla principal */
+}

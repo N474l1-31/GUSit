@@ -1,0 +1,29 @@
+<h2 mat-dialog-title class="titulo">DESVINCULA SISTEMA DE VISTAS </h2>
+
+<div class="campos-dialog">
+  <form [formGroup]="desvinculaSistemaVForm" (ngSubmit)="desvinculaSistemaAVistas()">
+    <div class="campos-estilo">
+      <mat-form-field>
+        <mat-label>Sistema</mat-label>
+        <input matInput  [value]="sistemaVDesvinculada.nombre" readonly>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="vistasActivasVinculadas && vistasActivasVinculadas.length > 0" class="vistas-container">
+      <p class="indicaciones">Selecciona las VISTAS que deseas Desvincular del Sistema:</p>
+
+      <div class="vistas-filas">
+        <div class="vistas-columnas" *ngFor="let vista of vistasActivasVinculadas; let i = index">
+          <mat-checkbox [checked]="vista.selected" [value]="vista.vista" (change)="updateSelectedVistas($event, vista.vista)">
+            {{ vista.vista }}
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="centrar-botones">
+      <button mat-button class="boton-acciones" type="button" (click)="cerrarDialog()">Cerrar</button>
+      <button mat-button class="boton-acciones" type="submit">Guardar</button>
+    </div>
+  </form>
+</div>
